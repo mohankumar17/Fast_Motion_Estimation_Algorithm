@@ -54,44 +54,17 @@ end
 fprintf('Average PSNR: %f\n',(mean(ESpsnr)));
 fprintf('Average EScomputations: %f\n',(sum(EScomputations)));
 
-%     % Three Step Search
-%     [motionVect,computations ] = motionEstTSS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     TSSpsnr(i+1) = imgPSNR(imgP, imgComp, 255);
-%     TSScomputations(i+1) = computations;
-% 
-%     % Simple and Efficient Three Step Search
-%     [motionVect, computations] = motionEstSESTSS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     SESTSSpsnr(i+1) = imgPSNR(imgP, imgComp, 255);
-%     SESTSScomputations(i+1) = computations;
-% 
-%     % New Three Step Search
-%     [motionVect,computations ] = motionEstNTSS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     NTSSpsnr(i+1) = imgPSNR(imgP, imgComp, 255);
-%     NTSScomputations(i+1) = computations;
-% 
-%     % Four Step Search
-%     [motionVect, computations] = motionEst4SS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     SS4psnr(i+1) = imgPSNR(imgP, imgComp, 255);
-%     SS4computations(i+1) = computations;
-% 
-%     % Diamond Search
-%     [motionVect, computations] = motionEstDS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     DSpsnr(i+1) = imgPSNR(imgP, imgComp, 255);
-%     DScomputations(i+1) = computations;
-%     
-%     % Adaptive Rood Patern Search
-%     [motionVect, computations] = motionEstARPS(imgP,imgI,mbSize,p);
-%     imgComp = motionComp(imgI, motionVect, mbSize);
-%     ARPSpsnr(i+1) = imgPSNR(imgP, imgComp, 255); 
-%     ARPScomputations(i+1) = computations;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+ % Cross Hexagonal Search
+    [motionVect, computations] = motionEstNHS(imgP,imgI,mbSize,p);
+    toc
+    imgComp = motionComp(imgI, motionVect, mbSize);
+    NHSpsnr(i+1) = imgPSNR(imgP, imgComp, 255);          
+    NHScomputations(i+1) = computations;
+end
+
+fprintf('Average PSNR: %f\n',(mean(NHSpsnr)));
+fprintf('Average EScomputations: %f\n',(sum(NHScomputations)));
 
 
-
-% save dsplots2 DSpsnr DScomputations ESpsnr EScomputations TSSpsnr ...
-%       TSScomputations SS4psnr SS4computations NTSSpsnr NTSScomputations ...
-%        SESTSSpsnr SESTSScomputations ARPSpsnr ARPScomputations
