@@ -2,4 +2,4 @@
 1. motionEstAnalysis - Invokes motion estimation algorithm 
 2. motionEstES - Full Search(Exhaustive Search) Algorithm 
 3. motionEstNHS - New Cross Hexagonal Search Algorithm
-# Details attached in the Report file
+# Check more details in REPORT.DOCX
